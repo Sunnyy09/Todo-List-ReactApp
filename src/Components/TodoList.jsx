@@ -34,7 +34,7 @@ function TodoList() {
       <ul className="list-none w-full space-y-3 my-5">
         {todos.map((todo) => (
           <li
-            className={`"mt-4 flex space-x-3 items-center bg-[#171c48] px-4 py-2 shadow-sm shadow-white/50 rounded-md ${
+            className={`"mt-4 flex space-x-3 items-center bg-[#171c48] px-3 py-2 shadow-sm shadow-white/50 rounded-md transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-white/100 ${
               todo.completed ? "bg-red-300" : "bg-[#171c48]"
             }`}
             key={todo.id}
@@ -42,11 +42,11 @@ function TodoList() {
             <input
               type="checkbox"
               checked={todo.completed}
-              className="cursor-pointer"
+              className="w-[20px] h-[20px] cursor-pointer"
               onChange={() => handleToggle(todo.id)}
             />
             <div
-              className={`text-[#fff] text-lg w-full ${
+              className={`text-[#fff] text-lg w-full font-serif ${
                 todo.completed ? "text-black line-through" : "text-[#fff]"
               }`}
             >
@@ -66,7 +66,7 @@ function TodoList() {
               )}
             </div>
             <button
-              className="bg-red-500 border-0 py-1.5 px-2 focus:outline-none hover:bg-red-600 rounded"
+              className="bg-[#828dff] border-0 py-1.5 px-2 focus:outline-none hover:bg-indigo-600 rounded transition ease-in-out duration-300"
               onClick={() => {
                 if (todo.completed) return;
                 handleEdit(todo.id, todo.text);
@@ -101,7 +101,7 @@ function TodoList() {
             </button>
             <button
               onClick={() => dispatch(removeTodo(todo.id))}
-              className="text-white bg-red-500 border-0 py-1 px-2 focus:outline-none hover:bg-red-600 rounded text-md"
+              className="text-white bg-red-500 border-0 py-1 px-2 focus:outline-none hover:bg-red-700 rounded text-md transition ease-in-out duration-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
